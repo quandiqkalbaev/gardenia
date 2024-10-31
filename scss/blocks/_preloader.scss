@@ -1,0 +1,67 @@
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 400ms linear;
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__counter {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: center;
+  }
+  &__text {
+    font-family: Cinzel;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0);
+    transition: color 100ms linear;
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
+  }
+  &__number {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 178px;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 0);
+    transition: color 100ms linear;
+    @media (max-width: 768px) {
+      font-size: 130px;
+    }
+  }
+  &__circle {
+    position: absolute;
+  }
+  &-off {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+.progres {
+  @media (max-width: 768px) {
+    transform: scale(0.7);
+  }
+
+  &__ring-circle {
+    transform-origin: center;
+    stroke-dashoffset: 1545.66;
+    transform: rotate(-90deg);
+    transition: all 300ms linear;
+  }
+}

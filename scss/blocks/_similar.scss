@@ -1,0 +1,203 @@
+.enquire-btn {
+  min-width: 143px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Raleway;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0.74px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  @media (min-width: 2500px) {
+    min-width: 246px;
+    height: 82px;
+    font-size: 24px;
+  }
+  &__wrapper {
+    border-radius: 48px;
+    height: 41px;
+    width: 123px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1.5px solid #111;
+    background: #111;
+    color: #fff;
+    transition: width 500ms ease-in-out, height 500ms ease-in-out;
+    @media (min-width: 2500px) {
+      width: 200px;
+      height: 70px;
+    }
+  }
+  &__arrow {
+    display: block;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    background-color: #fff;
+    background-image: url("../images/intro/white-arrow.svg");
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 5px;
+    transform: rotate(-45deg);
+    transition: all 500ms ease-in-out;
+    @media (min-width: 2500px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__main {
+    transition: all 500ms ease-in-out;
+  }
+  &__sub {
+    pointer-events: none;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(30px);
+    transition: all 500ms ease-out;
+    opacity: 0;
+    @media (min-width: 2500px) {
+      right: 60px;
+    }
+  }
+  @media (hover: hover) {
+    &:hover .enquire-btn__wrapper {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover .enquire-btn__arrow {
+      transform: translateX(82px) rotate(0);
+      width: 26px;
+      height: 26px;
+      background-image: url("../images/intro/arrow.svg");
+      @media (min-width: 2500px) {
+        transform: translateX(140px) rotate(0);
+        width: 32px;
+        height: 32px;
+      }
+    }
+    &:hover .enquire-btn__main {
+      transform: translateX(-50px);
+      @media (min-width: 2500px) {
+        transform: translateX(-65px);
+      }
+    }
+    &:hover .enquire-btn__sub {
+      transform: translateY(-50%);
+      opacity: 1;
+    }
+  }
+  @media (hover:none) {
+    &:active .enquire-btn__wrapper {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:active .enquire-btn__arrow {
+      transform: translateX(82px) rotate(0);
+      width: 26px;
+      height: 26px;
+      background-image: url("../images/intro/arrow.svg");
+      @media (min-width: 2500px) {
+        transform: translateX(140px) rotate(0);
+        width: 32px;
+        height: 32px;
+      }
+    }
+    &:active .enquire-btn__main {
+      transform: translateX(-50px);
+      @media (min-width: 2500px) {
+        transform: translateX(-65px);
+      }
+    }
+    &:active .enquire-btn__sub {
+      transform: translateY(-50%);
+      opacity: 1;
+    }
+  }
+}
+.enquire-btn__white {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 500ms linear;
+  .enquire-btn__wrapper {
+    border: 1.5px solid #ffffff;
+    background: #ffffff;
+    color: #111;
+  }
+  .enquire-btn__arrow {
+    background-color: #111;
+    background-image: url("../images/intro/arrow.svg");
+  }
+  &:hover .enquire-btn__arrow {
+    transform: translateX(82px) rotate(0);
+    background-image: url("../images/intro/white-arrow.svg");
+    @media (min-width: 2500px) {
+      transform: translateX(140px) rotate(0);
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.splitting {
+  .line-overflow {
+    overflow: hidden;
+  }
+  .line-inner {
+    transform: translateY(100%);
+    transition-duration: 450ms;
+    transition-timing-function: ease-in-out;
+  }
+}
+.splitting--active {
+  @for $i from 0 to 7 {
+    .line-overflow:nth-child(#{$i}) .line-inner {
+      transform: translateY(0);
+      transition-delay: #{200 * $i}ms;
+    }
+  }
+}
+.developer {
+  .splitting--active {
+    @for $i from 0 to 11 {
+      .line-overflow:nth-child(#{$i}) .line-inner {
+        transform: translateY(0);
+        transition-delay: #{100 * $i}ms;
+        @media (max-width: 992px) {
+          transition-delay: #{100 * $i }ms;
+        }
+      }
+    }
+  }
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0);
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 400ms ease-in-out;
+}
+.form-times {
+  transition: all 400ms ease-in-out;
+}
+.form-icons {
+  transition: all 400ms ease-in-out;
+}
+form input::placeholder {
+  transition: all 400ms ease-in-out;
+}
+form input:focus::placeholder {
+  opacity: 0.4; /* Change opacity when input is focused */
+}

@@ -1,0 +1,84 @@
+.menu-active {
+  .header__right {
+    clip-path: inset(0% 0% 0% 0%);
+    background: #fff;
+  }
+  .header__menu-icon {
+    transform: rotate(-135deg);
+  }
+  .header__contacts {
+    a path {
+      fill: #232323;
+    }
+    &--active a svg path {
+      transition: all 600ms ease-in-out;
+    }
+
+    div:not(:last-child) a {
+      &:hover span {
+        padding-left: 10px;
+        @media (min-width: 2500px) {
+          padding-left: 10px;
+        }
+        @media (min-width: 3000px) {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+  .header__contacts-number {
+    color: #9a9a9a;
+    span {
+      color: #232323;
+    }
+  }
+  .shadow {
+    opacity: 1;
+  }
+  .header__list,
+  .header__form {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  @media (max-width: 768px) {
+    .header__logo {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .header__contacts-mobile {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .header__contacts {
+    div:not(:last-child) a {
+      &:hover {
+        grid-template-columns: 21px 0fr;
+        padding: 0;
+        background-color: rgba(255, 255, 255, 0);
+        svg path {
+          fill: $black !important;
+        }
+      }
+      &:hover .header__contacts-text {
+        opacity: 1;
+        color: $white;
+        padding-left: 0;
+      }
+    }
+    div:not(:last-child) a svg {
+      &:hover ~ .header__contacts-tooltip {
+        opacity: 1;
+        color: $white;
+        z-index: 5;
+      }
+    }
+    div:not(:last-child) .header__contacts-tooltip {
+      pointer-events: all;
+    }
+
+    div:last-child:hover .header__contacts-number {
+      color: $black !important;
+    }
+  }
+}
